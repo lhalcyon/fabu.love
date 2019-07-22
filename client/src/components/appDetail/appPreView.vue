@@ -123,11 +123,11 @@
       getAppInfo(shortUrl) {
         AppResourceApi.getAppInfoByShortUrl(shortUrl).then((res) => {
           console.log(res)
-          if (res.data.version === null) {
+          if (res.data.currentVersion === null) {
               this.$message.error('未检测到版本信息')
               return
           }
-          this.appVersionInfo = res.data.version
+          this.appVersionInfo = res.data.currentVersion
           this.appBaseData = res.data.app
           let releaseDate = new Date(this.appVersionInfo.uploadAt)
           this.downloadUrl = `${window.origin}${this.$route.fullPath}`
